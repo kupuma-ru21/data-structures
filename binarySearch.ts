@@ -20,11 +20,12 @@ function binarySearch(arr: number[], target: number) {
 }
 
 function findSum(arr: number[], value: number) {
-  arr.sort((a, b) => a - b);
+  arr.sort((a, b) => a - b); // O(nlogn)
 
+  // O(n)
   for (let j = 0; j < arr.length; j++) {
     const restNum = value - arr[j];
-    const index = binarySearch(arr, restNum);
+    const index = binarySearch(arr, restNum); // O(logn)
 
     const isNotDuplicatedMidIndex = index !== j;
     /* NOTE
@@ -40,5 +41,4 @@ function findSum(arr: number[], value: number) {
   return false;
 }
 
-console.log(findSum([1, 2, 3, 4, 5], 10));
-console.log(findSum([1, 2, 3, 4, 5, 6], 10));
+console.log(findSum([1, 2, 3, 4, 5], 10)); // O(nlogn)
